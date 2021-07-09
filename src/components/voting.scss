@@ -1,0 +1,12 @@
+.voting-container{
+    display: flex;
+    justify-content: space-around;
+    padding:20px;
+}
+
+.vote-icon{
+    cursor: pointer;
+    &:hover{
+        color: rgb(24, 24, 207);
+    }
+}

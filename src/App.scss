@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.nav-item-container {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav-bar {
+  background-color: aliceblue;
+  padding: 5px;
+}
+
+.nav-item{
+  padding: 10px;
+  text-decoration:none;
+  :hover{
+    background-color: cadetblue;
+  }
+}

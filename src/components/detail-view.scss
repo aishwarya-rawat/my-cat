@@ -1,0 +1,39 @@
+.heart{
+    font-size: xxx-large;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    &.red {
+      color: red;
+    }
+
+    &.grey {
+      color: grey;
+    }
+  }
+
+  .cat-box{
+    width: calc(25% - 30px);
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px;
+    box-sizing: border-box;
+    position: relative;
+
+
+    @media (max-width: 780px) {
+      width: calc(50% - 10px);
+    }
+
+    @media (max-width: 400px) {
+      width: 100%;
+    }
+
+
+  }
+
+  .cat-img{
+    height: 300px;
+    width: 90%;
+  }
