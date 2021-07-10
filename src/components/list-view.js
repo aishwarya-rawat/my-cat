@@ -11,15 +11,6 @@ export default function ListView() {
 
     useEffect(() => {
         const payload = { limit: 100 };
-        // getImages(payload).then(res => {
-        //     setCatList(res);
-        // });
-        // getAllFav(payload).then(res=>{
-        //     const favIdList = res.map(eachFav => eachFav.image_id);
-        //     setFavList(favIdList);
-        // })
-
-
 
         axios.all([getImages(payload), getAllFav(payload), getAllVotes(payload)])
             .then(axios.spread((imageData, favData, voteData) => {
@@ -52,29 +43,16 @@ export default function ListView() {
                     }
                 });
                 setCatList(updatedImageList);
-
             }));
-
-        getAllVotes(payload).then(res => {
-            console.log(res);
-        })
-
     }, []);
 
-    const isCatFav = (catId) => {
-        return favList.includes(catId);
-    }
-
     return (<React.Fragment>
-
         <h2>List of Cats</h2>
-
         <div className="cat-container">
             {(catList.length && catList.map(cat =>
                 <DetailView key={cat.id} cat={cat}></DetailView>
             ))}
         </div>
     </React.Fragment>
-
     )
 }

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.scss';
 import ListView from './components/list-view';
 import Upload from './components/upload';

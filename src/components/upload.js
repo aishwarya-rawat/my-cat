@@ -9,30 +9,27 @@ export default function Upload() {
 
     const onImageChange = (event) => {
         if(event?.target?.files[0]){
-            console.log(event);
-         
             setSelectedImage(event.target.files[0]);
             setPreviewImage(URL.createObjectURL(event.target.files[0]));
         }
     }
 
     const onUploadImage = () => {
-        const formData = new FormData();
-        formData.append('file',selectedImage,selectedImage.name);
-        const payload = {
-            file: selectedImage
-        };
-        uploadImage(formData).then((res) => {
-            //success
-            console.log(res);
-            history.push("/")
-        }).catch(error=>{console.log(error)});
+        if(selectedImage){
+            const formData = new FormData();
+            formData.append('file',selectedImage,selectedImage.name);
+            uploadImage(formData).then((res) => {
+                if(res){
+                    history.push("/")
+                }
+            })
+        }
     }
 
     return (
         <div>
             <h2>Upload Cat</h2>
-            <img src={previewImage} />
+            {previewImage && <img src={previewImage} />}
             <h4>Select Image</h4>
             <input type="file" name="catImage" accept="image/*, image/png" onChange={onImageChange} />
             <button onClick={onUploadImage}>Upload</button>

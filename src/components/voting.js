@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { vote } from '../api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,11 +12,10 @@ export default function Voting(props) {
 
     const onVote = (val) => {
         const payload = {
-            image_id: props.cat.id,
+            image_id: cat.id,
             value: val
         }
         vote(payload).then(res => {
-            console.log(res);
             if(val === 1){
                 setScore(score+1);
             }else{
@@ -31,7 +30,6 @@ export default function Voting(props) {
                 <FontAwesomeIcon className="vote-icon" icon={faThumbsUp} size="lg" onClick={() => onVote(1)} />
                 <span>{score}</span>
                 <FontAwesomeIcon className="vote-icon" icon={faThumbsDown} size="lg" onClick={() => onVote(0)} />
-
             </div>
         </React.Fragment>
 

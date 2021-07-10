@@ -16,12 +16,10 @@ export default function DetailView(props) {
     const toggleFav = () => {
         if (isFav) {
             unsetFav(cat.favId).then(resp => {
-                console.log(resp);
                 setIsFav(false);
             })
         } else {
             setFav({ image_id: cat.id }).then(resp => {
-                console.log(resp);
                 setIsFav(true);
             })
         }
