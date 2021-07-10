@@ -7,7 +7,6 @@ import axios from "axios";
 export default function ListView() {
 
     const [catList, setCatList] = useState([]);
-    const [favList, setFavList] = useState([]);
 
     useEffect(() => {
         const payload = { limit: 100 };
