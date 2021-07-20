@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +10,7 @@ import Voting from './voting';
 
 export default function DetailView(props) {
 
-    const [cat, setCat] = useState(props.cat);
+    const cat = props.cat;
     const [isFav, setIsFav] = useState(props.cat.isFav);
 
     const toggleFav = () => {
@@ -25,14 +25,12 @@ export default function DetailView(props) {
         }
     }
 
-    return (<React.Fragment>
+    return (<>
         <div className="cat-box">
-            <FontAwesomeIcon className={isFav?'heart red':'heart grey'} icon={faHeart} size="lg" onClick={toggleFav} />
-            <div className="cat-img-container"><img className="cat-img" src={cat.url} /></div>
-            <Voting cat={cat}></Voting>
-
+            <FontAwesomeIcon className={isFav ? 'heart red' : 'heart grey'} icon={faHeart} size="lg" onClick={toggleFav} />
+            <div className="cat-img-container"><img className="cat-img" alt="cat" src={cat.url} /></div>
+            <Voting cat={cat} />
         </div>
-    </React.Fragment>
-
+    </>
     )
 }

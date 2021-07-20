@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {uploadImage} from '../api';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
+import './upload.scss';
 export default function Upload() {
 
     const [selectedImage, setSelectedImage] = useState("");
@@ -20,7 +21,7 @@ export default function Upload() {
             formData.append('file',selectedImage,selectedImage.name);
             uploadImage(formData).then((res) => {
                 if(res){
-                    history.push("/")
+                    history.push('/')
                 }
             })
         }
@@ -29,10 +30,12 @@ export default function Upload() {
     return (
         <div>
             <h2>Upload Cat</h2>
-            {previewImage && <img src={previewImage} />}
+            {previewImage && <img className="img-cont" alt="cat" src={previewImage} />}
+            <div className="p-s">
             <h4>Select Image</h4>
-            <input type="file" name="catImage" accept="image/*, image/png" onChange={onImageChange} />
+            <input type="file" name="catImage" accept="image/jpeg, image/png" onChange={onImageChange} />
             <button onClick={onUploadImage}>Upload</button>
+            </div>
         </div>
 
     )

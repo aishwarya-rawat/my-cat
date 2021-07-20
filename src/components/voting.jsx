@@ -7,7 +7,7 @@ import './voting.scss';
 
 export default function Voting(props) {
 
-    const [cat, setCat] = useState(props.cat);
+    const cat =  props.cat;
     const [score, setScore] = useState(props.cat.score)
 
     const onVote = (val) => {
@@ -25,13 +25,13 @@ export default function Voting(props) {
     }
 
     return (
-        <React.Fragment>
+        <>
             <div className="voting-container">
                 <FontAwesomeIcon className="vote-icon" icon={faThumbsUp} size="lg" onClick={() => onVote(1)} />
                 <span>{score}</span>
                 <FontAwesomeIcon className="vote-icon" icon={faThumbsDown} size="lg" onClick={() => onVote(0)} />
             </div>
-        </React.Fragment>
+        </>
 
     )
 }

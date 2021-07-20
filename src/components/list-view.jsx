@@ -7,6 +7,7 @@ import axios from "axios";
 export default function ListView() {
 
     const [catList, setCatList] = useState([]);
+    const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
         const payload = { limit: 100 };
@@ -42,16 +43,18 @@ export default function ListView() {
                     }
                 });
                 setCatList(updatedImageList);
+                setLoading(false);
             }));
     }, []);
 
-    return (<React.Fragment>
+    return (<>
         <h2>List of Cats</h2>
         <div className="cat-container">
-            {(catList.length && catList.map(cat =>
-                <DetailView key={cat.id} cat={cat}></DetailView>
+            {isLoading? <div className="loading-container">Loading...</div>:
+            (catList.length && catList.map(cat =>
+                <DetailView key={cat.id} cat={cat}/>
             ))}
         </div>
-    </React.Fragment>
+    </>
     )
 }

@@ -2,7 +2,7 @@ import './App.scss';
 import ListView from './components/list-view';
 import Upload from './components/upload';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
             <li >
               <Link className="nav-item" to="/">Home</Link>
             </li>
+            <span className="seperator">|</span>
             <li >
               <Link className="nav-item" to="/upload">Upload</Link>
             </li>
@@ -25,10 +26,10 @@ function App() {
 
         <Switch>
           <Route exact path="/">
-            <ListView></ListView>
+            <ListView/>
           </Route>
           <Route path="/upload">
-            <Upload></Upload>
+            <Upload/>
           </Route>
         </Switch>
       </Router>

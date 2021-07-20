@@ -16,10 +16,19 @@
 .nav-item{
   padding: 10px;
   text-decoration:none;
+  cursor: pointer;
   &:hover{
     color: cadetblue;
   }
-  &:active{
-    color: cadetblue;
+  & a:active{
+    background-color: cadetblue;
   }
+}
+
+.seperator{
+  color: gray;
+}
+
+.p-s{
+  padding:10px;
 }
